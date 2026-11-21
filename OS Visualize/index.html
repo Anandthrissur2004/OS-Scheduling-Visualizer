@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disk Scheduling Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Disk Scheduling Visualizer</h1>
+    <p>FCFS | SSTF | SCAN | C-SCAN | LOOK</p>
+</header>
+
+<div class="container">
+
+    <h2>Disk Input</h2>
+
+    <label>Disk Size:</label>
+    <input type="number" id="size" value="200">
+
+    <label>Initial Head Position:</label>
+    <input type="number" id="head" value="53">
+
+    <label>Request Queue:</label>
+    <input type="text" id="queue"
+        value="98,183,37,122,14,124,65,67">
+
+    <label>Direction:</label>
+    <select id="direction">
+        <option value="right">Right</option>
+        <option value="left">Left</option>
+    </select>
+
+    <br><br>
+
+    <button onclick="runAll()">Run All Algorithms</button>
+
+    <p id="error"></p>
+
+    <hr>
+
+    <h2>Seek Graph</h2>
+
+    <h3 id="algorithm">FCFS</h3>
+
+    <p>Total Head Movement:
+        <b id="movement">0</b>
+    </p>
+
+    <canvas id="seekGraph" width="900" height="350"></canvas>
+
+    <br>
+
+    <button onclick="playAnimation()">Play Animation</button>
+    <button onclick="nextStep()">Next Step</button>
+    <button onclick="resetAnimation()">Reset</button>
+
+    <hr>
+
+    <h2>Algorithm Selection</h2>
+
+    <button onclick="selectAlgorithm('FCFS')">FCFS</button>
+    <button onclick="selectAlgorithm('SSTF')">SSTF</button>
+    <button onclick="selectAlgorithm('SCAN')">SCAN</button>
+    <button onclick="selectAlgorithm('C-SCAN')">C-SCAN</button>
+    <button onclick="selectAlgorithm('LOOK')">LOOK</button>
+
+    <p id="sequence"></p>
+
+    <hr>
+
+    <h2>Comparison of Algorithms</h2>
+
+    <canvas id="barGraph" width="900" height="350"></canvas>
+
+    <div id="results"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
